@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/StyleSheet1.css" />
+    <title>Memory game!</title>
+</head>
+<body>
+        <div id="id1">
+            <p>MEMORY</p>
+        </div>
+        <div id="id2">
+        </div>
+        <div id="id3">
+            <p id="vrijeme">Time:1:59</p>
+            <button id="bt1" type="button" class="btn btn-primary">START</button>
+            <button id="bt2" type="button" class="btn btn-primary">
+                Top 5 Scores
+            </button>
+            <div class="cont">
+                <input type="radio" name="choice" id="inpt1" />
+                <label for="inpt1">2 of kind</label>
+                <div class="check1"></div>
+                <input type="radio" name="choice" id="inpt2" />
+                <label for="inpt2">3 of kind</label>
+                <div class="check2"></div>
+            </div>
+
+        </div>
+        <div class="modal" id="myModal" role="dialog">
+            <div class="modal-content">
+                <button type="button" class="close">&times;</button>
+                <p>Top 5 scores:</p>
+                <br />
+                <p id="idn"></p>
+            </div>
+        </div>
+       <button id="bt5" style="visibility:hidden"></button>
+        <div class="modal" id="myModal2">
+            <div class="modal-content" id="prikaz">
+                <button type="button" class="close" id="bt3">&times;</button>
+                <p>Congratulations!</p>
+                <p>Your score is: </p>
+                <p id="trenutniRezultat"></p>
+                <p id="again">Play again</p>
+            </div>
+        </div>
+    <button id="bt6" style="visibility:hidden"></button>
+        <div class="modal" id="myModal3">
+            <div class="modal-content">
+                <button type="button" class="close" id="bt4">&times;</button>
+                <p>Aww:(</p>
+                <p>Your time is up</p>
+                <p id="trenutniRezultat"></p>
+            </div>
+        </div>
+ 
+        <script src="js/Script1.js"></script>
+</body>
+</html>
