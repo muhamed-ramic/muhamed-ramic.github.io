@@ -1,18 +1,25 @@
-﻿
-body{
-background-color:rgb(133,179,80);
+﻿body {
+    background-color: rgb(133, 179, 80);
+    overflow-x: hidden;
 }
-#bt1{
- margin-top:20px;font-size:28px;background-color:rgb(105,179,210);padding:15px;overflow:hidden
+
+#bt1 {
+    margin-top: 20px;
+    font-size: 28px;
+    background-color: rgb(105, 179, 210);
+    padding: 15px;
+    overflow: hidden
 }
-#bt2{
-margin-top:20px;
-font-size:28px;
-display:block;
-width:95%;
-overflow:hidden;
- background-color:rgb(105,178,210);
-padding:25px;text-align:center
+
+#bt2 {
+    margin-top: 20px;
+    font-size: 28px;
+    display: block;
+    width: 95%;
+    overflow: hidden;
+    background-color: rgb(105, 178, 210);
+    padding: 25px;
+    text-align: center
 }
 
 @font-face {
@@ -34,7 +41,6 @@ padding:25px;text-align:center
     display: inline-block;
     width: 120px;
     height: 150px;
-    float: left;
     left: 5%;
 }
 
@@ -59,148 +65,172 @@ padding:25px;text-align:center
 
 #id2 {
     position: relative;
-    left: 12%;
-    width: 840px;
+    width: 65%;
+    left: 10%;
+    margin-left: 0;
+    margin-right: auto;
 }
 
 #id3 {
-    position: fixed;
-    float: right;
-    top:0px;
-    right:0px;
-    max-width:23%;
-   margin-top:20px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    max-width: 25%;
+    margin-top: 20px;
     font-family: myFont;
     color: white;
     font-size: 28px;
 }
-input[type="radio"]{
-position:absolute;
-visibility:hidden;
-margin:50px;
-}
-.cont{
-position:relative;
-left:20px;
-}
-.cont label{
-display:block;
-position:relative;
-padding:10px;
-margin:2px auto;
-top:25px;
-cursor:pointer;
-}
-.check1{
- display:block;
-position:absolute;
-border:5px solid white;
-border-radius:100%;
-height:25px;
-width:25px;
-left:-25px;
-}
-.check2{
- display:block;
-position:absolute;
-border:5px solid white;
-border-radius:100%;
-height:25px;
-width:25px;
-left:-25px;
+
+input[type="radio"] {
+    position: absolute;
+    visibility: hidden;
+    margin: 50px;
 }
 
-.check1::before{
-display:block;
-position:absolute;
-content:'';
-border-radius:120%;
-height: 20px;
-left:-2px;
-width: 20px;
-margin:auto;
-top:-2px;
+.cont {
+    position: relative;
+    left: 20px;
 }
-.check2::before{
-display:block;
-position:absolute;
-content:'';
-border-radius:120%;
-height: 20px;
- width: 20px;
-left:-2px;
-top:-2px;
-margin:auto;
+
+.cont label {
+    display: block;
+    position: relative;
+    padding: 10px;
+    margin: 2px auto;
+    top: 25px;
+    cursor: pointer;
+}
+
+.check1 {
+    display: block;
+    position: absolute;
+    border: 5px solid white;
+    border-radius: 100%;
+    height: 25px;
+    width: 25px;
+    left: -25px;
+}
+
+.check2 {
+    display: block;
+    position: absolute;
+    border: 5px solid white;
+    border-radius: 100%;
+    height: 25px;
+    width: 25px;
+    left: -25px;
+}
+
+.check1::before {
+    display: block;
+    position: absolute;
+    content: '';
+    border-radius: 120%;
+    height: 20px;
+    left: -2px;
+    width: 20px;
+    margin: auto;
+    top: -2px;
+}
+
+.check2::before {
+    display: block;
+    position: absolute;
+    content: '';
+    border-radius: 120%;
+    height: 20px;
+    width: 20px;
+    left: -2px;
+    top: -2px;
+    margin: auto;
 }
 
 .show-modal {
     opacity: 1;
     visibility: visible;
 }
-input[type="radio"][id="inpt1"]:checked ~ .check1::before{
-background-color:rgb(105,178,210);
-}
-input[type="radio"][id="inpt2"]:checked ~ .check2::before{
-background-color:rgb(105,178,210);
-}
-.modal{
-display:none;
-position:fixed;
-z-index:1;
-padding-top:50px;
-left:0;
-top:0;
-width:100%;
-height:100%;
-}
-.modal-content{
-margin:auto;
-text-align:center;
-padding:20px;
-width:70%;
-background-color:rgba(0,0,0,0.5);
-font-family:myFont;
-font-size:28px;
-color:white
-}
-.close{
-color:white;
-float:right;
-font-size:48px;
-}
-.idn{
-margin:auto;
-width:200px
-}
-@media only screen and (max-width: 568px) {
-div#id1{margin-top:40%;}
-div#id2{
-max-width:75%;
-left:0px;}
 
-div.karte{
-  width:50px;
-  height:25px;
-  margin-left:15px;
- margin-top:55px;
+input[type="radio"][id="inpt1"]:checked~.check1::before {
+    background-color: rgb(105, 178, 210);
 }
 
- div#id3{max-width:50%;margin-top:10px;right:0px;font-size:17px;margin-left:15px}
- button#bt2{width:80%;font-size:17px}
- button#bt1{font-size:17px;}
+input[type="radio"][id="inpt2"]:checked~.check2::before {
+    background-color: rgb(105, 178, 210);
 }
-@media only screen and (min-width:768px){
-  div#id2{
-  max-width:840px;
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
 }
+
+.modal-content {
+    margin: auto;
+    text-align: center;
+    padding: 20px;
+    width: 70%;
+    background-color: rgba(0, 0, 0, 0.5);
+    font-family: myFont;
+    font-size: 28px;
+    color: white
 }
-.transformationM{
- transform:rotateY(180deg);
-transition: transform 1.5s;
-transform-style:preserve-3d
+
+.close {
+    color: white;
+    float: right;
+    font-size: 48px;
 }
-.transformationN{
-transform:rotateY(-180deg);
-transition: transform 0.5s;
-transform-style:preserve-3d;
+
+.idn {
+    margin: auto;
+    width: 200px
+}
+
+@media only screen and (max-width: 768px) {
+    div#id1 {font-size: 14px;}
+    div#id2 {
+        max-width: 75%;
+        left: 0px;
+    }
+
+    div.karte {
+        width: 70px;
+        height: 70px;
+        margin: 5px 0 0 0;
+    }   
+
+    img.karta {
+        width: 100%;
+        height: 100%;
+    }
+
+    div#id3 {
+        max-width: 90%;
+        font-size: 17px;
+    }
+    body {height: 75vh;}
+}
+
+@media only screen and (max-width: 1024px) {
+   .btn-primary {
+       font-size: 15px !important;
+   }
+}
+
+.transformationM {
+    transform: rotateY(180deg);
+    transition: transform 1.5s;
+    transform-style: preserve-3d
+}
+
+.transformationN {
+    transform: rotateY(-180deg);
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
 }
