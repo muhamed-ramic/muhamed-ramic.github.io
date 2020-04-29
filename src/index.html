@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/main.css" />
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <title>Memory game!</title>
+</head>
+
+<body>
+  <div id="header-title">
+    <p>MEMORY</p>
+  </div>
+
+  <div id="main">
+  </div>
+
+  <div id="timerScoreWrap">
+    <p id="timer">Time:1:59</p>
+    <button id="btnStartGame" type="button" class="btn btn-primary">START</button>
+    <button id="btnTopScores" type="button" class="btn btn-primary">
+      Top 5 Scores
+    </button>
+    <div class="choices">
+      <input type="radio" name="choice" id="inpt1" />
+      <label for="inpt1">2 of kind</label>
+      <div class="check1"></div>
+    </div>
+  </div>
+
+  <div class="modal" id="topScoreModal" role="dialog">
+    <div class="modal-content">
+      <button type="button" id="closeTopScore" class="close">&times;</button>
+      <p>Top 5 scores:</p>
+      <br />
+      <div id="idn"></div>
+    </div>
+  </div>
+
+  <button id="btnWinnerResult" style="visibility:hidden"></button>
+  <div class="modal" id="winnerModal">
+    <div class="modal-content">
+      <button type="button" class="close" id="btnCloseWinner">&times;</button>
+      <p>Congratulations!</p>
+      <p>Your score is: </p>
+      <p id="currentScore"></p>
+      <p id="again">Play again</p>
+    </div>
+  </div>
+  <button id="btnLoserResult" style="visibility:hidden"></button>
+  <div class="modal" id="loserModal">
+    <div class="modal-content">
+      <button type="button" class="close" id="btnCloseLoser">&times;</button>
+      <p>Aww:(</p>
+      <p>Your time is up</p>
+      <p id="currentScore"></p>
+    </div>
+  </div>
+  <script type="text/babel" src="js/main.js"></script>
+</body>
+</html>
