@@ -51,7 +51,8 @@ const init = () => {
 
     if (gameOn) {
       if (cardsToCompare.length % 2 == 0 && cardsToCompare.length > 0) {
-        if (cardsToCompare[length - 1].firstElementChild.src != cardsToCompare[length - 2].firstElementChild.src) {
+        if (cardsToCompare[length - 1].firstElementChild.src != cardsToCompare[length - 2].firstElementChild.src
+            && cardsToCompare[length - 2].id != "cantClick" && cardsToCompare[length - 1].id != "cantClick") {
           cardsToCompare[length - 1].classList.add("transformationN");
           cardsToCompare[length - 2].classList.add("transformationN");
 
@@ -64,6 +65,11 @@ const init = () => {
         } else if (cardsToCompare[length - 1].src == cardsToCompare[length - 2].src && cardsToCompare[length - 1].parentElement.id != cardsToCompare[length - 2].parentElement.id) {
           cardsToCompare[length - 1].style.opacity = "0.3";
           cardsToCompare[length - 2].style.opacity = "0.3";
+
+          //Prevent click again
+          cardsToCompare[length - 1].removeEventListener("click", openCard);
+          cardsToCompare[length - 2].removeEventListener("click", openCard);
+
           animateCards(cardsToCompare[length - 1], cardsToCompare[length - 2], true);
           result++;
         }
@@ -201,13 +207,14 @@ const init = () => {
           user: localStorage.getItem("user"),
           score: result
         };
-        let scoredPre = [];
+        let scoredPre = [], previous = [];
         if (localStorage.getItem("score")) {
-           let previous = JSON.parse(localStorage.getItem("score"));
-           scoredPre.push(previous);
-           scoredPre.push(score);
-        } 
-        localStorage.setItem("score", JSON.stringify(scoredPre));
+           previous = JSON.parse(localStorage.getItem("score"));
+           previous.push(score);
+        } else {
+          previous.push(score);
+        }
+        localStorage.setItem("score", JSON.stringify(previous));
       }
     });
   };
@@ -232,18 +239,22 @@ const init = () => {
     let scoreModal = document.getElementById('topScoreModal');
     let closeModal = document.getElementById('closeTopScore');
     let scoreResultDiv = scoreModal.querySelector('#idn');
-
-    scoredPre.sort((a,b) => {
-     return -(a > b)  || + (a < b) 
-    });
-    if (scoredPre.length > 5) {
-      scoredPre = scoredPre.slice(0, 5);
+    debugger;
+    if (scoredPre) {
+      if (scoredPre.length > 1) {
+        scoredPre.sort((a,b) => {
+          return -(a > b)  || + (a < b) 
+        });
+        if (scoredPre.length > 5) {
+          scoredPre = scoredPre.slice(0, 5);
+        }
+        scoreResultDiv.innerHTML = "";
+        scoredPre.forEach(item => {
+          scoreResultDiv.innerHTML += `<p>${item.user}: <b>${item.score}</b></p>`
+        });
+        modalToggle(scoreModal);
+      }
     }
-    scoredPre.forEach(item => {
-     scoreResultDiv.innerHTML += `<p>${item.user}: <b>${item.score}</b></p>`
-    });
-    modalToggle(scoreModal);
-
     closeModal.addEventListener("click", () => {
       modalToggle(scoreModal, 'yes');
     });
@@ -296,7 +307,6 @@ const init = () => {
     btnLoserToggle = document.getElementById('btnLoserResult');
     timer = document.getElementById("timer");
     animalCards = document.getElementById("main");
-    greeting();
     renderMemoryCards();
     events();
   };
